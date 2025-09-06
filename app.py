@@ -4,11 +4,11 @@ app = Flask(__name__)
 
 # Simple hardcoded user (for demo only!)
 USERNAME = "admin"
-PASSWORD = "password123"
+PASSWORD = "123"
 
 @app.route("/")
 def home():
-    return redirect(url_for("login"))
+    return redirect(url_for("index.html"))
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -21,7 +21,7 @@ def login():
         else:
             return "<h2>Invalid credentials. Try again.</h2>"
 
-    return render_template("login.html")
+    return render_template("index.html")
 
 if __name__ == "__main__":
     import os
